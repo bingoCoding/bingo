@@ -1,0 +1,2 @@
+# bingo
+my hugo blog
