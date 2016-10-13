@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Post-rsses on Icarus</title>
+    <link>http://bingoCoding.github.io/post/index.xml</link>
+    <description>Recent content in Post-rsses on Icarus</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice).</copyright>
+    <lastBuildDate>Thu, 13 Oct 2016 23:58:51 +0800</lastBuildDate>
+    <atom:link href="http://bingoCoding.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>test</title>
+      <link>http://bingocoding.github.io/2016/10/13/test</link>
+      <pubDate>Thu, 13 Oct 2016 23:58:51 +0800</pubDate>
+      
+      <guid>http://bingocoding.github.io/2016/10/13/test</guid>
+      <description>&lt;p&gt;
+撒开了房间 f
+aflj&lt;/p&gt;
+
+&lt;h3 id=&#34;发觉了fa&#34;&gt;发觉了fa&lt;/h3&gt;
+
+&lt;h2 id=&#34;放假啊-及&#34;&gt;放假啊；及&lt;/h2&gt;
+
+&lt;h5 id=&#34;只是测试一下看看环境是否搭建成功&#34;&gt;只是测试一下看看环境是否搭建成功&lt;/h5&gt;
+
+&lt;p&gt;看到搭建成功了，还是很开心的！&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
