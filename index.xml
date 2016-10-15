@@ -2,20 +2,115 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Icarus</title>
-    <link>http://bingoCoding.github.io/index.xml</link>
+    <link>https://bingoCoding.github.io/index.xml</link>
     <description>Recent content on Icarus</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Powered by [Hugo](//gohugo.io). Theme by [PPOffice](http://github.com/ppoffice).</copyright>
-    <lastBuildDate>Thu, 13 Oct 2016 23:58:51 +0800</lastBuildDate>
-    <atom:link href="http://bingoCoding.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Powered by [Hugo](//gohugo.io). Theme by [PPOffice](https://github.com/ppoffice).</copyright>
+    <lastBuildDate>Sat, 15 Oct 2016 15:47:34 +0800</lastBuildDate>
+    <atom:link href="https://bingoCoding.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>useHugo</title>
+      <link>https://bingocoding.github.io/2016/10/15/usehugo</link>
+      <pubDate>Sat, 15 Oct 2016 15:47:34 +0800</pubDate>
+      
+      <guid>https://bingocoding.github.io/2016/10/15/usehugo</guid>
+      <description>&lt;p&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;使用hugo搭建个人博客&#34;&gt;使用hugo搭建个人博客&lt;/h3&gt;
+
+&lt;p&gt;先说说hugo.
+一直想用一个简单的框架搭建一个自己的博客，后来看到有人使用了jekyll,于是自己也尝试搭建了一个。虽然最后也搭建成功了，但是还是有点不爽的。其他的不说，对于一个新手来说，Jekyll以及那一堆静态网站生成器安装总感觉麻烦（依赖多，配置多）。当然不爽还因为，因为我是菜鸟网页搭建好后还有许多地方看起来不那么完美。对于我来说，一个博客应该将时间花在内容上而不是各种折腾网站。
+直到看到有人说用hugo搭建个人博客或中小型站点后，发现只是搭建一个环境的话hugo更适合我。
+hugo 生成网站速度飞快，用几ms不敢说，反正瞬间完成。更重要的是搭建安装过程简单。&lt;/p&gt;
+
+&lt;h2 id=&#34;hugo是一个通用网站框架-静态网站生成器&#34;&gt;hugo是一个通用网站框架&amp;ndash;静态网站生成器。&lt;/h2&gt;
+
+&lt;h4 id=&#34;1-安装&#34;&gt;1.安装&lt;/h4&gt;
+
+&lt;p&gt;到 &lt;a href=&#34;https://github.com/spf13/hugo/releases&#34;&gt;Hugo Releases&lt;/a&gt;  下载对应的操作系统版本的Hugo二进制文件。
+比如：我安装的windows版本的，只需下载windows版32或64位的压缩文件。
+解压下载好的文件，里面有3个文件，把这三个文件放到同一个文件夹下。
+比如我放到D:\hugo\bin文件夹下。
+配置环境变量。把hugo.exe文件所在路径放到用户环境PATH下。
+打开doc窗口，输入hugo help 出现一下内容说明已经安装成功：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    hugo is the main command, used to build your Hugo site.
+
+    Hugo is a Fast and Flexible Static Site Generator
+    built with love by spf13 and friends in Go. ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;2-生成站点&#34;&gt;2.生成站点&lt;/h4&gt;
+
+&lt;p&gt;打开命令行窗口。输入站点创建命令：hugo new site +你要生成的网站的目录路径。
+比如我的：hugo new site D:/hugo/site/bingoCoding
+或者：进入到目标文件夹下：D盘 hugo文件夹中，右键单击，单击在此处打开命令行。输入命令hugo new site site/bingoCoding
+至此，网站框架已经生成到bingoCoding文件夹下。
+站点目录结构：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    ▸ archetypes/
+    ▸ content/
+    ▸ layouts/
+    ▸ static/
+    config.toml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;content目录里放的是自己写的markdown文章，layouts目录里放的是网站的模板文件，static目录里放的是一些图片、css、js等资源。&lt;/p&gt;
+
+&lt;h4 id=&#34;3-创建文章&#34;&gt;3.创建文章&lt;/h4&gt;
+
+&lt;p&gt;创建一个 first 页面：
+        hugo new post/first.md
+first.md 自动生成到了 content/post/first.md。一般文章都放到post文件夹下，方便管理和之后生成聚合页面。
+内容是 Markdown 格式的，+++ 之间的内容是 TOML 格式的，根据自己喜好，可以换成 YAML 格式（使用 &amp;mdash; 标记）或者 JSON 格式。&lt;/p&gt;
+
+&lt;h4 id=&#34;4-安装皮肤&#34;&gt;4.安装皮肤&lt;/h4&gt;
+
+&lt;p&gt;到&lt;a href=&#34;http://themes.gohugo.io/&#34;&gt;hugo&lt;/a&gt; 下载喜欢的皮肤。
+我下载的hugo-icarus-theme皮肤。对于一个博客来说，功能已经很全了。
+在bingoCoding下创建themes文件夹。把下载的皮肤压缩包解压到themes下。
+找到themes\hugo-icarus-theme\exampleSite下的config.toml和data复制到网站根路径下即bingoCoding下替换原有文件和文件夹。
+修改config.toml 中参数即可。&lt;/p&gt;
+
+&lt;h4 id=&#34;5-运行hugo&#34;&gt;5.运行Hugo&lt;/h4&gt;
+
+&lt;p&gt;在你的站点根目录执行 Hugo 命令进行调试：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    $ hugo server
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;浏览器里打开： &lt;a href=&#34;http://localhost:1313&#34;&gt;http://localhost:1313&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;6-关于部署&#34;&gt;6.关于部署&lt;/h4&gt;
+
+&lt;p&gt;一般情况当然是部署在 GitHub Pages 上啦，首先在GitHub上创建一个Repository，命名为：bingoCoding.github.io （bingoCoding替换为你的github用户名）。&lt;/p&gt;
+
+&lt;p&gt;在站点根目录bingoCoding目录下执行 Hugo 命令生成最终页面：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    hugo --theme=hugo-icarus-theme --baseUrl=&amp;quot;https://bingoCoding.github.io/&amp;quot;
+    http一定要加s啊,不然访问的时候会提示不安全信息。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果一切顺利，所有静态页面都会生成到 public 目录。&lt;/p&gt;
+
+&lt;p&gt;将pubilc目录里所有文件 push 到刚创建的Repository的 master 分支。
+如果没安装git的话.可以直接打开GitHub上创建的Repository，点击bingoCoding.github.io,选择upload files,把public文件夹下的所有文件拷贝到github上，commit.&lt;/p&gt;
+
+&lt;p&gt;浏览器里访问：&lt;a href=&#34;http://bingoCoding.github.io/&#34;&gt;http://bingoCoding.github.io/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;官方文档：&lt;a href=&#34;https://gohugo.io/overview/introduction/&#34;&gt;https://gohugo.io/overview/introduction/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;皮肤列表：&lt;a href=&#34;https://github.com/spf13/hugoThemes&#34;&gt;https://github.com/spf13/hugoThemes&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>test</title>
-      <link>http://bingocoding.github.io/2016/10/13/test</link>
+      <link>https://bingocoding.github.io/2016/10/13/test</link>
       <pubDate>Thu, 13 Oct 2016 23:58:51 +0800</pubDate>
       
-      <guid>http://bingocoding.github.io/2016/10/13/test</guid>
+      <guid>https://bingocoding.github.io/2016/10/13/test</guid>
       <description>&lt;p&gt;
 撒开了房间 f
 aflj&lt;/p&gt;
