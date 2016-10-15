@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Post-rsses on Icarus</title>
+    <title>Post-rsses on bingo</title>
     <link>https://bingoCoding.github.io/post/index.xml</link>
-    <description>Recent content in Post-rsses on Icarus</description>
+    <description>Recent content in Post-rsses on bingo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Powered by [Hugo](//gohugo.io). Theme by [PPOffice](https://github.com/ppoffice).</copyright>
