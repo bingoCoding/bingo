@@ -520,8 +520,8 @@ first.md 自动生成到了 content/post/first.md。一般文章都放到post文
 
 &lt;h3 id=&#34;x轴data名字太多-导致重叠或显示不全-在xaxis中加axislabel&#34;&gt;x轴data名字太多，导致重叠或显示不全。在xAxis中加axisLabel。&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&#34;{{&amp;quot;/css/pics/echarts3.png&amp;quot;}}&#34; alt=&#34;echarts3&#34; /&gt;
-&lt;img src=&#34;{{&amp;quot;/css/pics/echarts4.png&amp;quot;}}&#34; alt=&#34;echarts4&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;https://bingoCoding.github.io/img/echarts3.png&#34; alt=&#34;echarts3&#34; /&gt;
+&lt;img src=&#34;https://bingoCoding.github.io/img/echarts4.png&#34; alt=&#34;echarts4&#34; /&gt;
 &lt;br/&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;xAxis : [ {
@@ -547,7 +547,7 @@ first.md 自动生成到了 content/post/first.md。一般文章都放到post文
 
 &lt;p&gt;&lt;b&gt; rotate :60  倾斜角度，可以改变xAxis的data 数据名字倾斜角度。可以防止名字重叠。&lt;/b&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;{{&amp;quot;/css/pics/echarts1.png&amp;quot;}}&#34; alt=&#34;echarts1&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://bingoCoding.github.io/img/echarts1.png&#34; alt=&#34;echarts1&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;倾斜之后-可能由于名字太长-导致显示不全-如上图&#34;&gt;倾斜之后，可能由于名字太长，导致显示不全，如上图。&lt;/h3&gt;
 
@@ -560,7 +560,7 @@ first.md 自动生成到了 content/post/first.md。一般文章都放到post文
  },
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;{{&amp;quot;/css/pics/echarts2.png&amp;quot;}}&#34; alt=&#34;echarts2&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://bingoCoding.github.io/img/echarts2.png&#34; alt=&#34;echarts2&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;ok,问题解决。&lt;/p&gt;</description>
     </item>
