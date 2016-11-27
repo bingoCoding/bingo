@@ -303,36 +303,39 @@
 <h3 id="shiro-mysql-err-1146">shiro mysql err 1146</h3>
 
 <p>报错情形：
-学习shiro,使用jdbcRealm进行身份认证，用jdbc访问数据库后报错。
-        org.apache.shiro.authc.AuthenticationException: There was a SQL error while authenticating user [zhang]
-            at org.apache.shiro.realm.jdbc.JdbcRealm.doGetAuthenticationInfo(JdbcRealm.java:254)
-            at org.apache.shiro.realm.AuthenticatingRealm.getAuthenticationInfo(AuthenticatingRealm.java:568)
-            at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doSingleRealmAuthentication(ModularRealmAuthenticator.java:180)
-            at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doAuthenticate(ModularRealmAuthenticator.java:267)
-            at org.apache.shiro.authc.AbstractAuthenticator.authenticate(AbstractAuthenticator.java:198)
-            at org.apache.shiro.mgt.AuthenticatingSecurityManager.authenticate(AuthenticatingSecurityManager.java:106)
-            at org.apache.shiro.mgt.DefaultSecurityManager.login(DefaultSecurityManager.java:270)
-            at org.apache.shiro.subject.support.DelegatingSubject.login(DelegatingSubject.java:256)
-            at com.shiro.shiro01.Shiro2.main(Shiro2.java:25)
-        Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown error 1146
-            at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-            at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-            at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-            at java.lang.reflect.Constructor.newInstance(Unknown Source)
-            at com.mysql.jdbc.Util.handleNewInstance(Util.java:404)
-            at com.mysql.jdbc.Util.getInstance(Util.java:387)
-            at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:942)
-            at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3966)
-            at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3902)
-            at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2526)
-            at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2673)
-            at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2549)
-            at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1861)
-            at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:1962)
-            at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:76)
-            at org.apache.shiro.realm.jdbc.JdbcRealm.getPasswordForUser(JdbcRealm.java:284)
-            at org.apache.shiro.realm.jdbc.JdbcRealm.doGetAuthenticationInfo(JdbcRealm.java:221)
-百度 err 1146 错误，大部分问题出在找不到数据表，或者安装出错。于是，检查自己的数据库：
+学习shiro,使用jdbcRealm进行身份认证，用jdbc访问数据库后报错。</p>
+
+<pre><code>org.apache.shiro.authc.AuthenticationException: There was a SQL error while authenticating user [zhang]
+    at org.apache.shiro.realm.jdbc.JdbcRealm.doGetAuthenticationInfo(JdbcRealm.java:254)
+    at org.apache.shiro.realm.AuthenticatingRealm.getAuthenticationInfo(AuthenticatingRealm.java:568)
+    at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doSingleRealmAuthentication(ModularRealmAuthenticator.java:180)
+    at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doAuthenticate(ModularRealmAuthenticator.java:267)
+    at org.apache.shiro.authc.AbstractAuthenticator.authenticate(AbstractAuthenticator.java:198)
+    at org.apache.shiro.mgt.AuthenticatingSecurityManager.authenticate(AuthenticatingSecurityManager.java:106)
+    at org.apache.shiro.mgt.DefaultSecurityManager.login(DefaultSecurityManager.java:270)
+    at org.apache.shiro.subject.support.DelegatingSubject.login(DelegatingSubject.java:256)
+    at com.shiro.shiro01.Shiro2.main(Shiro2.java:25)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown error 1146
+    at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+    at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+    at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+    at java.lang.reflect.Constructor.newInstance(Unknown Source)
+    at com.mysql.jdbc.Util.handleNewInstance(Util.java:404)
+    at com.mysql.jdbc.Util.getInstance(Util.java:387)
+    at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:942)
+    at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3966)
+    at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3902)
+    at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2526)
+    at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2673)
+    at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2549)
+    at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1861)
+    at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:1962)
+    at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:76)
+    at org.apache.shiro.realm.jdbc.JdbcRealm.getPasswordForUser(JdbcRealm.java:284)
+    at org.apache.shiro.realm.jdbc.JdbcRealm.doGetAuthenticationInfo(JdbcRealm.java:221)
+</code></pre>
+
+<p>百度 err 1146 错误，大部分问题出在找不到数据表，或者安装出错。于是，检查自己的数据库：
         mysql&gt; show databases
             -&gt; ;
         +&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;+
@@ -368,9 +371,12 @@
     2 rows in set (0.00 sec)
 </code></pre>
 
-<p>确定数据库没问题，再从shiro错误入手：
-        at org.apache.shiro.realm.jdbc.JdbcRealm.doGetAuthenticationInfo(JdbcRealm.java:221)
-查看源码：
+<p>确定数据库没问题，再从shiro错误入手：</p>
+
+<pre><code>at org.apache.shiro.realm.jdbc.JdbcRealm.doGetAuthenticationInfo(JdbcRealm.java:221)
+</code></pre>
+
+<p>查看源码：
     JdbcRealm.java &ndash;&gt;
         password = getPasswordForUser(conn, username)[0];</p>
 

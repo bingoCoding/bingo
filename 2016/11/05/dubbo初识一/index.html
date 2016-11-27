@@ -302,44 +302,44 @@
 
 <h3 id="认知dubbo">认知dubbo</h3>
 
-<p>Dubbo是什么？答：一个框架，两个方案。
+<p>Dubbo是什么？答：一个框架，两个方案。<br>
 Dubbo是一个分布式服务框架，致力于提高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案。</p>
 
 <h2 id="特点">特点</h2>
 
-<p>1.远程通讯:提供透明化的远程方法调用，提供多协议支持。简单说就是调用远程方法就和调用本地方法一样，只需简单配置，不通过任何API。
-2.集群容错：支持软负载均衡，失败容错，地址路由，动态配置等集群。（在内网代替了nighx,lvs,f转硬件的负载均衡器。目的：节约成本，减少单点故障）
-3.自动发现：基于注册中心的目录服务（基于zookeeper的注册与发现），使服务消费方能动态的查找服务提供方（基于接口名查找服务提供者的ip和服务，不需写死服务器的ip，域名与端口，让zookeeper自动发现），支持平滑减少或增加机器.
+<p>1.远程通讯:提供透明化的远程方法调用，提供多协议支持。简单说就是调用远程方法就和调用本地方法一样，只需简单配置，不通过任何API。<br>
+2.集群容错：支持软负载均衡，失败容错，地址路由，动态配置等集群。（在内网代替了nighx,lvs,f转硬件的负载均衡器。目的：节约成本，减少单点故障）<br>
+3.自动发现：基于注册中心的目录服务（基于zookeeper的注册与发现），使服务消费方能动态的查找服务提供方（基于接口名查找服务提供者的ip和服务，不需写死服务器的ip，域名与端口，让zookeeper自动发现），支持平滑减少或增加机器.<br>
 4.spring的集成。dubbo采用了spring配置方法，透明化接入应用，对应用没有任何API侵入，只需用spring加载Dubbo的配置即可。</p>
 
 <h2 id="选择dubbo原因">选择Dubbo原因</h2>
 
-<p>1.MVC、RPC、SOA框架的演进
-2.目前SOA技术主要框架有两个SOA和ICE
-相似功能：注册中心、负载均衡、安全机制访问控制
-Doubbo通过zookeeper注册和发现服务。ICE自带注册中心；负载均衡：各自有自己的负载均衡算法；安全方面：Dubbo定义了路由规则、访问控制、黑白名单等。ICE则是有防火墙服务，允许客户端和服务端防火墙安全来通信。
-不同功能：Dubbo服务治理更多一些，有一个服务管理平台，ICE有一个软件补丁服务，服务端发布补丁，客户端能自动检测并更新，另外还有一个发布-订阅服务。
-Dubbo属于轻量级服务，类似spring，ICE属于重量级，自带注册中心等等服务。
-跨语言支持程度：Dubbo不支持跨语言，但是dubbox实现了跨语言，内部实现了thrift调用。ICE支持跨语言。
-目前使用活跃度Dubbo更活跃。
-Dubbo开发语言是java，ICE是c 语言。
-综合看，Dubbo更适合java开发者。</p>
+<p>1.MVC、RPC、SOA框架的演进<br>
+2.目前SOA技术主要框架有两个SOA和ICE<br>
+相似功能：注册中心、负载均衡、安全机制访问控制<br>
+Doubbo通过zookeeper注册和发现服务。ICE自带注册中心；负载均衡：各自有自己的负载均衡算法；安全方面：Dubbo定义了路由规则、访问控制、黑白名单等。ICE则是有防火墙服务，允许客户端和服务端防火墙安全来通信。<br>
+不同功能：Dubbo服务治理更多一些，有一个服务管理平台，ICE有一个软件补丁服务，服务端发布补丁，客户端能自动检测并更新，另外还有一个发布-订阅服务。<br>
+Dubbo属于轻量级服务，类似spring，ICE属于重量级，自带注册中心等等服务。<br>
+跨语言支持程度：Dubbo不支持跨语言，但是dubbox实现了跨语言，内部实现了thrift调用。ICE支持跨语言。<br>
+目前使用活跃度Dubbo更活跃。<br>
+Dubbo开发语言是java，ICE是c 语言。<br>
+综合看，Dubbo更适合java开发者。<br></p>
 
 <h3 id="开发">开发</h3>
 
 <p>学会常用7大标签
 <a href="dubbo:application">dubbo:application</a>
-provider服务：application：当前服务项目信息的配置。
-container：当前服务的运行容器默认jetty。
-provider专有服务：
-provider:服务提供方的服务治理性能调优的配置信息，系统级的配置，eg:服务类型，服务线程，相应数据包等。
-service：服务提供者暴露的接口配置，针对某个接口的配置。service继承provider，是继承关系。
-consumer专有服务：
-consumer：服务治理性能调优的配置信息，系统级的配置，eg:远程调用的超时时间
-reference:服务消费者引用设置。继承consumer。
-reference引用service的接口。
-registry:注册中心的配置，可以注册多个。使用时，只需reference\service配置指定registry属性。
-protocol:远程调用协议，服务与服务之间的通信配置。</p>
+provider服务：application：当前服务项目信息的配置。<br>
+container：当前服务的运行容器默认jetty。<br>
+provider专有服务：<br>
+provider:服务提供方的服务治理性能调优的配置信息，系统级的配置，eg:服务类型，服务线程，相应数据包等。<br>
+service：服务提供者暴露的接口配置，针对某个接口的配置。service继承provider，是继承关系。<br>
+consumer专有服务：<br>
+consumer：服务治理性能调优的配置信息，系统级的配置，eg:远程调用的超时时间<br>
+reference:服务消费者引用设置。继承consumer。<br>
+reference引用service的接口。<br>
+registry:注册中心的配置，可以注册多个。使用时，只需reference\service配置指定registry属性。<br>
+protocol:远程调用协议，服务与服务之间的通信配置。<br></p>
             </div>
             <footer class="article-footer">
     <a data-url="https://bingocoding.github.io/2016/11/05/dubbo%E5%88%9D%E8%AF%86%E4%B8%80" data-id="ceb3ff7f9c2d17634741696bb4c6dfff" class="article-share-link">

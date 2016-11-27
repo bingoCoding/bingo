@@ -21,36 +21,39 @@
 &lt;h3 id=&#34;shiro-mysql-err-1146&#34;&gt;shiro mysql err 1146&lt;/h3&gt;
 
 &lt;p&gt;报错情形：
-学习shiro,使用jdbcRealm进行身份认证，用jdbc访问数据库后报错。
-        org.apache.shiro.authc.AuthenticationException: There was a SQL error while authenticating user [zhang]
-            at org.apache.shiro.realm.jdbc.JdbcRealm.doGetAuthenticationInfo(JdbcRealm.java:254)
-            at org.apache.shiro.realm.AuthenticatingRealm.getAuthenticationInfo(AuthenticatingRealm.java:568)
-            at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doSingleRealmAuthentication(ModularRealmAuthenticator.java:180)
-            at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doAuthenticate(ModularRealmAuthenticator.java:267)
-            at org.apache.shiro.authc.AbstractAuthenticator.authenticate(AbstractAuthenticator.java:198)
-            at org.apache.shiro.mgt.AuthenticatingSecurityManager.authenticate(AuthenticatingSecurityManager.java:106)
-            at org.apache.shiro.mgt.DefaultSecurityManager.login(DefaultSecurityManager.java:270)
-            at org.apache.shiro.subject.support.DelegatingSubject.login(DelegatingSubject.java:256)
-            at com.shiro.shiro01.Shiro2.main(Shiro2.java:25)
-        Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown error 1146
-            at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-            at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
-            at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
-            at java.lang.reflect.Constructor.newInstance(Unknown Source)
-            at com.mysql.jdbc.Util.handleNewInstance(Util.java:404)
-            at com.mysql.jdbc.Util.getInstance(Util.java:387)
-            at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:942)
-            at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3966)
-            at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3902)
-            at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2526)
-            at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2673)
-            at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2549)
-            at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1861)
-            at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:1962)
-            at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:76)
-            at org.apache.shiro.realm.jdbc.JdbcRealm.getPasswordForUser(JdbcRealm.java:284)
-            at org.apache.shiro.realm.jdbc.JdbcRealm.doGetAuthenticationInfo(JdbcRealm.java:221)
-百度 err 1146 错误，大部分问题出在找不到数据表，或者安装出错。于是，检查自己的数据库：
+学习shiro,使用jdbcRealm进行身份认证，用jdbc访问数据库后报错。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;org.apache.shiro.authc.AuthenticationException: There was a SQL error while authenticating user [zhang]
+    at org.apache.shiro.realm.jdbc.JdbcRealm.doGetAuthenticationInfo(JdbcRealm.java:254)
+    at org.apache.shiro.realm.AuthenticatingRealm.getAuthenticationInfo(AuthenticatingRealm.java:568)
+    at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doSingleRealmAuthentication(ModularRealmAuthenticator.java:180)
+    at org.apache.shiro.authc.pam.ModularRealmAuthenticator.doAuthenticate(ModularRealmAuthenticator.java:267)
+    at org.apache.shiro.authc.AbstractAuthenticator.authenticate(AbstractAuthenticator.java:198)
+    at org.apache.shiro.mgt.AuthenticatingSecurityManager.authenticate(AuthenticatingSecurityManager.java:106)
+    at org.apache.shiro.mgt.DefaultSecurityManager.login(DefaultSecurityManager.java:270)
+    at org.apache.shiro.subject.support.DelegatingSubject.login(DelegatingSubject.java:256)
+    at com.shiro.shiro01.Shiro2.main(Shiro2.java:25)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown error 1146
+    at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+    at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+    at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+    at java.lang.reflect.Constructor.newInstance(Unknown Source)
+    at com.mysql.jdbc.Util.handleNewInstance(Util.java:404)
+    at com.mysql.jdbc.Util.getInstance(Util.java:387)
+    at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:942)
+    at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3966)
+    at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3902)
+    at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2526)
+    at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2673)
+    at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2549)
+    at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1861)
+    at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:1962)
+    at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeQuery(NewProxyPreparedStatement.java:76)
+    at org.apache.shiro.realm.jdbc.JdbcRealm.getPasswordForUser(JdbcRealm.java:284)
+    at org.apache.shiro.realm.jdbc.JdbcRealm.doGetAuthenticationInfo(JdbcRealm.java:221)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;百度 err 1146 错误，大部分问题出在找不到数据表，或者安装出错。于是，检查自己的数据库：
         mysql&amp;gt; show databases
             -&amp;gt; ;
         +&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;+
@@ -86,9 +89,12 @@
     2 rows in set (0.00 sec)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;确定数据库没问题，再从shiro错误入手：
-        at org.apache.shiro.realm.jdbc.JdbcRealm.doGetAuthenticationInfo(JdbcRealm.java:221)
-查看源码：
+&lt;p&gt;确定数据库没问题，再从shiro错误入手：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;at org.apache.shiro.realm.jdbc.JdbcRealm.doGetAuthenticationInfo(JdbcRealm.java:221)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;查看源码：
     JdbcRealm.java &amp;ndash;&amp;gt;
         password = getPasswordForUser(conn, username)[0];&lt;/p&gt;
 
@@ -111,7 +117,7 @@ shiro身份验证需要的数据库表明必须是users,同时username，和pass
       
       <guid>https://bingocoding.github.io/2016/11/27/%E5%88%9D%E5%AD%A6shiro--%E5%9F%BA%E7%A1%80</guid>
       <description>&lt;p&gt;
-&amp;gt; Apache Shiro（日语“堡垒（Castle）”的意思）是一个强大易用的Java安全框架，提供了认证、授权、加密和会话管理功能，可为任何应用提供安全保障 - 从命令行应用、移动应用到大型网络及企业应用。&lt;/p&gt;
+    &amp;gt; Apache Shiro（日语“堡垒（Castle）”的意思）是一个强大易用的Java安全框架，提供了认证、授权、加密和会话管理功能，可为任何应用提供安全保障- 从命令行应用、移动应用到大型网络及企业应用。&lt;/p&gt;
 
 &lt;p&gt;Shiro为解决下列问题（我喜欢称它们为应用安全的四要素）提供了保护应用的API：&lt;/p&gt;
 
@@ -125,40 +131,41 @@ shiro身份验证需要的数据库表明必须是users,同时username，和pass
 
 &lt;p&gt;Shiro还支持一些辅助特性，如Web应用安全、单元测试和多线程，它们的存在强化了上面提到的四个要素。&lt;/p&gt;
 
-&lt;p&gt;身份认证：&lt;/p&gt;
+&lt;p&gt;身份认证：&lt;br&gt;&lt;/p&gt;
 
-&lt;p&gt;subject(认证主体):
-principals:身份，可以是一个用户名，邮件，电话号码等等唯一标识。
-credentials:凭证，常见有密码，数字证书等。
-一般情况下，principals和credentials表示用户名和密码。&lt;/p&gt;
+&lt;p&gt;subject(认证主体):&lt;br&gt;
+principals:身份，可以是一个用户名，邮件，电话号码等等唯一标识。&lt;br&gt;
+credentials:凭证，常见有密码，数字证书等。&lt;br&gt;
+一般情况下，principals和credentials表示用户名和密码。&lt;br&gt;&lt;/p&gt;
 
-&lt;p&gt;realms(域)：
-shiro从realms中获取验证数据
-其中shiro.ini属于text realm
-realm有很多种，jdbc realm,jndi realm ,text realm &amp;hellip;&amp;hellip;&lt;/p&gt;
+&lt;p&gt;realms(域)：&lt;br&gt;
+shiro从realms中获取验证数据&lt;br&gt;
+其中shiro.ini属于text realm&lt;br&gt;
+realm有很多种，jdbc realm,jndi realm ,text realm &amp;hellip;&amp;hellip;&lt;br&gt;&lt;/p&gt;
 
-&lt;p&gt;权限认证：
-既访问控制，既在应用中控制谁拥有访问权限。
-权限认证核心三要素：权限，角色，用户&lt;/p&gt;
+&lt;p&gt;权限认证：&lt;br&gt;
+既访问控制，既在应用中控制谁拥有访问权限。&lt;br&gt;
+权限认证核心三要素：权限，角色，用户&lt;br&gt;&lt;/p&gt;
 
-&lt;p&gt;授权：
-1.编程式授权
-    基于角色的访问控制
-    基于权限的访问控制
-2.注解式授权
-3.jsp标签授权&lt;/p&gt;
+&lt;p&gt;授权：&lt;br&gt;
+1.编程式授权&lt;br&gt;
+    基于角色的访问控制&lt;br&gt;
+    基于权限的访问控制&lt;br&gt;
+2.注解式授权&lt;br&gt;
+3.jsp标签授权&lt;br&gt;&lt;/p&gt;
 
-&lt;p&gt;共有的仓库
-&lt;a href=&#34;http://repository.sonatype.org/content/groups/public/&#34;&gt;http://repository.sonatype.org/content/groups/public/&lt;/a&gt;
- &lt;a href=&#34;http://mirrors.ibiblio.org/pub/mirrors/maven2/org/acegisecurity/&#34;&gt;http://mirrors.ibiblio.org/pub/mirrors/maven2/org/acegisecurity/&lt;/a&gt;
-&lt;a href=&#34;http://mvnrepository.com/&#34;&gt;http://mvnrepository.com/&lt;/a&gt;
- &lt;a href=&#34;http://search.maven.org/&#34;&gt;http://search.maven.org/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+共有的仓库&lt;br&gt;
+&lt;a href=&#34;http://repository.sonatype.org/content/groups/public/&#34;&gt;http://repository.sonatype.org/content/groups/public/&lt;/a&gt;&lt;br&gt;
+ &lt;a href=&#34;http://mirrors.ibiblio.org/pub/mirrors/maven2/org/acegisecurity/&#34;&gt;http://mirrors.ibiblio.org/pub/mirrors/maven2/org/acegisecurity/&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;http://mvnrepository.com/&#34;&gt;http://mvnrepository.com/&lt;/a&gt;&lt;br&gt;
+ &lt;a href=&#34;http://search.maven.org/&#34;&gt;http://search.maven.org/&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
 
-&lt;p&gt;私有的仓库
-&lt;a href=&#34;http://repository.codehaus.org/&#34;&gt;http://repository.codehaus.org/&lt;/a&gt;
- &lt;a href=&#34;http://snapshots.repository.codehaus.org/&#34;&gt;http://snapshots.repository.codehaus.org/&lt;/a&gt;
- &lt;a href=&#34;http://people.apache.org/repo/m2-snapshot-repository&#34;&gt;http://people.apache.org/repo/m2-snapshot-repository&lt;/a&gt;
- &lt;a href=&#34;http://people.apache.org/repo/m2-incubating-repository/&#34;&gt;http://people.apache.org/repo/m2-incubating-repository/&lt;/a&gt;&lt;/p&gt;</description>
+&lt;p&gt;私有的仓库&lt;br&gt;
+&lt;a href=&#34;http://repository.codehaus.org/&#34;&gt;http://repository.codehaus.org/&lt;/a&gt;&lt;br&gt;
+ &lt;a href=&#34;http://snapshots.repository.codehaus.org/&#34;&gt;http://snapshots.repository.codehaus.org/&lt;/a&gt;&lt;br&gt;
+ &lt;a href=&#34;http://people.apache.org/repo/m2-snapshot-repository&#34;&gt;http://people.apache.org/repo/m2-snapshot-repository&lt;/a&gt;&lt;br&gt;
+ &lt;a href=&#34;http://people.apache.org/repo/m2-incubating-repository/&#34;&gt;http://people.apache.org/repo/m2-incubating-repository/&lt;/a&gt; &lt;br&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -192,17 +199,18 @@ realm有很多种，jdbc realm,jndi realm ,text realm &amp;hellip;&amp;hellip;&l
 
 &lt;h2 id=&#34;过滤器工作过程&#34;&gt;过滤器工作过程：&lt;/h2&gt;
 
-&lt;p&gt;web容器启动的时候会加载过滤器。过滤器启动。
-当用户发送请求服务器时，并不会直接到服务器，而是先到过滤器，过滤器会进行判断是否符合请求规则。
-如果符合规则，过滤器会将用户请求发送至web资源。
-web资源对用户的请求进行响应时，也会先将资源响应发送至过滤器，过滤器再将web资源的响应发送给用户。&lt;/p&gt;
+&lt;p&gt;web容器启动的时候会加载过滤器。过滤器启动。&lt;br&gt;
+当用户发送请求服务器时，并不会直接到服务器，而是先到过滤器，过滤器会进行判断是否符合请求规则。&lt;br&gt;
+如果符合规则，过滤器会将用户请求发送至web资源。&lt;br&gt;
+web资源对用户的请求进行响应时，也会先将资源响应发送至过滤器，过滤器再将web资源的响应发送给用户。&lt;br&gt;
+&lt;img src=&#34;{{&amp;quot;/static/img/Screenshot_20161107-220059.jpg&amp;quot;}}&#34; alt=&#34;过滤器的工作原理&#34; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;过滤器的生命周期&#34;&gt;过滤器的生命周期&lt;/h2&gt;
 
-&lt;p&gt;实例化：通过web.xml配置，容器启动会加载web资源，包括过滤器。过滤器被加载即完成实例化。只有当web容器启动时，过滤器才会进行实例化，即过滤器只会实例化一次。
-初始化：init()&amp;ndash;web容器创建过滤器实例后（过滤器实例化成功）会调用过滤器的init() 方法。这个方法中可以读取web.xml文件中过滤器的参数，进行初始化操作。同样只初始化一次。
-过滤：doFilter()&amp;ndash;过滤方法（过滤器的核心方法）。每次请求与过滤关联的url时，都会执行过滤方法。
-销毁：destroy()&amp;ndash;当web容器关闭时，在销毁过滤器前调用该方法。可以释放过滤器占用的资源。&lt;/p&gt;
+&lt;p&gt;实例化：通过web.xml配置，容器启动会加载web资源，包括过滤器。过滤器被加载即完成实例化。只有当web容器启动时，过滤器才会进行实例化，即过滤器只会实例化一次。&lt;br&gt;
+初始化：init()&amp;ndash;web容器创建过滤器实例后（过滤器实例化成功）会调用过滤器的init() 方法。这个方法中可以读取web.xml文件中过滤器的参数，进行初始化操作。同样只初始化一次。&lt;br&gt;
+过滤：doFilter()&amp;ndash;过滤方法（过滤器的核心方法）。每次请求与过滤关联的url时，都会执行过滤方法。&lt;br&gt;
+销毁：destroy()&amp;ndash;当web容器关闭时，在销毁过滤器前调用该方法。可以释放过滤器占用的资源。&lt;br&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;    web.xml配置信息
     &amp;lt;filter&amp;gt;
@@ -227,9 +235,10 @@ web资源对用户的请求进行响应时，也会先将资源响应发送至�
 
 &lt;h3 id=&#34;过滤器链&#34;&gt;过滤器链&lt;/h3&gt;
 
-&lt;p&gt;当用户请求的URL和过滤器的多个映射路径相同时，过滤器会依次经过过滤器。
-服务器会按照web.xml中过滤器定义的先后顺序组成一条过滤器链。
-执行过程：&lt;/p&gt;</description>
+&lt;p&gt;当用户请求的URL和过滤器的多个映射路径相同时，过滤器会依次经过过滤器。&lt;br&gt;
+服务器会按照web.xml中过滤器定义的先后顺序组成一条过滤器链。&lt;br&gt;
+执行过程：
+&lt;img src=&#34;{{&amp;quot;/static/img/Screenshot_20161107-215237.jpg&amp;quot;}}&#34; alt=&#34;过滤器的执行过程&#34; /&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -242,44 +251,44 @@ web资源对用户的请求进行响应时，也会先将资源响应发送至�
 
 &lt;h3 id=&#34;认知dubbo&#34;&gt;认知dubbo&lt;/h3&gt;
 
-&lt;p&gt;Dubbo是什么？答：一个框架，两个方案。
+&lt;p&gt;Dubbo是什么？答：一个框架，两个方案。&lt;br&gt;
 Dubbo是一个分布式服务框架，致力于提高性能和透明化的RPC远程服务调用方案，以及SOA服务治理方案。&lt;/p&gt;
 
 &lt;h2 id=&#34;特点&#34;&gt;特点&lt;/h2&gt;
 
-&lt;p&gt;1.远程通讯:提供透明化的远程方法调用，提供多协议支持。简单说就是调用远程方法就和调用本地方法一样，只需简单配置，不通过任何API。
-2.集群容错：支持软负载均衡，失败容错，地址路由，动态配置等集群。（在内网代替了nighx,lvs,f转硬件的负载均衡器。目的：节约成本，减少单点故障）
-3.自动发现：基于注册中心的目录服务（基于zookeeper的注册与发现），使服务消费方能动态的查找服务提供方（基于接口名查找服务提供者的ip和服务，不需写死服务器的ip，域名与端口，让zookeeper自动发现），支持平滑减少或增加机器.
+&lt;p&gt;1.远程通讯:提供透明化的远程方法调用，提供多协议支持。简单说就是调用远程方法就和调用本地方法一样，只需简单配置，不通过任何API。&lt;br&gt;
+2.集群容错：支持软负载均衡，失败容错，地址路由，动态配置等集群。（在内网代替了nighx,lvs,f转硬件的负载均衡器。目的：节约成本，减少单点故障）&lt;br&gt;
+3.自动发现：基于注册中心的目录服务（基于zookeeper的注册与发现），使服务消费方能动态的查找服务提供方（基于接口名查找服务提供者的ip和服务，不需写死服务器的ip，域名与端口，让zookeeper自动发现），支持平滑减少或增加机器.&lt;br&gt;
 4.spring的集成。dubbo采用了spring配置方法，透明化接入应用，对应用没有任何API侵入，只需用spring加载Dubbo的配置即可。&lt;/p&gt;
 
 &lt;h2 id=&#34;选择dubbo原因&#34;&gt;选择Dubbo原因&lt;/h2&gt;
 
-&lt;p&gt;1.MVC、RPC、SOA框架的演进
-2.目前SOA技术主要框架有两个SOA和ICE
-相似功能：注册中心、负载均衡、安全机制访问控制
-Doubbo通过zookeeper注册和发现服务。ICE自带注册中心；负载均衡：各自有自己的负载均衡算法；安全方面：Dubbo定义了路由规则、访问控制、黑白名单等。ICE则是有防火墙服务，允许客户端和服务端防火墙安全来通信。
-不同功能：Dubbo服务治理更多一些，有一个服务管理平台，ICE有一个软件补丁服务，服务端发布补丁，客户端能自动检测并更新，另外还有一个发布-订阅服务。
-Dubbo属于轻量级服务，类似spring，ICE属于重量级，自带注册中心等等服务。
-跨语言支持程度：Dubbo不支持跨语言，但是dubbox实现了跨语言，内部实现了thrift调用。ICE支持跨语言。
-目前使用活跃度Dubbo更活跃。
-Dubbo开发语言是java，ICE是c 语言。
-综合看，Dubbo更适合java开发者。&lt;/p&gt;
+&lt;p&gt;1.MVC、RPC、SOA框架的演进&lt;br&gt;
+2.目前SOA技术主要框架有两个SOA和ICE&lt;br&gt;
+相似功能：注册中心、负载均衡、安全机制访问控制&lt;br&gt;
+Doubbo通过zookeeper注册和发现服务。ICE自带注册中心；负载均衡：各自有自己的负载均衡算法；安全方面：Dubbo定义了路由规则、访问控制、黑白名单等。ICE则是有防火墙服务，允许客户端和服务端防火墙安全来通信。&lt;br&gt;
+不同功能：Dubbo服务治理更多一些，有一个服务管理平台，ICE有一个软件补丁服务，服务端发布补丁，客户端能自动检测并更新，另外还有一个发布-订阅服务。&lt;br&gt;
+Dubbo属于轻量级服务，类似spring，ICE属于重量级，自带注册中心等等服务。&lt;br&gt;
+跨语言支持程度：Dubbo不支持跨语言，但是dubbox实现了跨语言，内部实现了thrift调用。ICE支持跨语言。&lt;br&gt;
+目前使用活跃度Dubbo更活跃。&lt;br&gt;
+Dubbo开发语言是java，ICE是c 语言。&lt;br&gt;
+综合看，Dubbo更适合java开发者。&lt;br&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;开发&#34;&gt;开发&lt;/h3&gt;
 
 &lt;p&gt;学会常用7大标签
 &lt;a href=&#34;dubbo:application&#34;&gt;dubbo:application&lt;/a&gt;
-provider服务：application：当前服务项目信息的配置。
-container：当前服务的运行容器默认jetty。
-provider专有服务：
-provider:服务提供方的服务治理性能调优的配置信息，系统级的配置，eg:服务类型，服务线程，相应数据包等。
-service：服务提供者暴露的接口配置，针对某个接口的配置。service继承provider，是继承关系。
-consumer专有服务：
-consumer：服务治理性能调优的配置信息，系统级的配置，eg:远程调用的超时时间
-reference:服务消费者引用设置。继承consumer。
-reference引用service的接口。
-registry:注册中心的配置，可以注册多个。使用时，只需reference\service配置指定registry属性。
-protocol:远程调用协议，服务与服务之间的通信配置。&lt;/p&gt;</description>
+provider服务：application：当前服务项目信息的配置。&lt;br&gt;
+container：当前服务的运行容器默认jetty。&lt;br&gt;
+provider专有服务：&lt;br&gt;
+provider:服务提供方的服务治理性能调优的配置信息，系统级的配置，eg:服务类型，服务线程，相应数据包等。&lt;br&gt;
+service：服务提供者暴露的接口配置，针对某个接口的配置。service继承provider，是继承关系。&lt;br&gt;
+consumer专有服务：&lt;br&gt;
+consumer：服务治理性能调优的配置信息，系统级的配置，eg:远程调用的超时时间&lt;br&gt;
+reference:服务消费者引用设置。继承consumer。&lt;br&gt;
+reference引用service的接口。&lt;br&gt;
+registry:注册中心的配置，可以注册多个。使用时，只需reference\service配置指定registry属性。&lt;br&gt;
+protocol:远程调用协议，服务与服务之间的通信配置。&lt;br&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -294,19 +303,19 @@ protocol:远程调用协议，服务与服务之间的通信配置。&lt;/p&gt;<
 
 &lt;h2 id=&#34;特点&#34;&gt;特点&lt;/h2&gt;
 
-&lt;h1 id=&#34;1-严格区分大小写&#34;&gt;1.严格区分大小写&lt;/h1&gt;
+&lt;h4 id=&#34;1-严格区分大小写&#34;&gt;1.严格区分大小写&lt;/h4&gt;
 
-&lt;h1 id=&#34;2-简单易学面向对象&#34;&gt;2.简单易学面向对象&lt;/h1&gt;
+&lt;h4 id=&#34;2-简单易学面向对象&#34;&gt;2.简单易学面向对象&lt;/h4&gt;
 
-&lt;h1 id=&#34;3-开源&#34;&gt;3.开源&lt;/h1&gt;
+&lt;h5 id=&#34;3-开源&#34;&gt;3.开源&lt;/h5&gt;
 
-&lt;h1 id=&#34;4-丰富的资源库文件&#34;&gt;4.丰富的资源库文件&lt;/h1&gt;
+&lt;h5 id=&#34;4-丰富的资源库文件&#34;&gt;4.丰富的资源库文件&lt;/h5&gt;
 
-&lt;h1 id=&#34;5-跨平台&#34;&gt;5.跨平台&lt;/h1&gt;
+&lt;h5 id=&#34;5-跨平台&#34;&gt;5.跨平台&lt;/h5&gt;
 
-&lt;h1 id=&#34;6-解释性语言&#34;&gt;6.解释性语言&lt;/h1&gt;
+&lt;h5 id=&#34;6-解释性语言&#34;&gt;6.解释性语言&lt;/h5&gt;
 
-&lt;h1 id=&#34;7-高级语言-不需要考虑底层交互&#34;&gt;7.高级语言（不需要考虑底层交互）&lt;/h1&gt;
+&lt;h5 id=&#34;7-高级语言-不需要考虑底层交互&#34;&gt;7.高级语言（不需要考虑底层交互）&lt;/h5&gt;
 
 &lt;h2 id=&#34;注意&#34;&gt;注意&lt;/h2&gt;
 
@@ -325,9 +334,9 @@ protocol:远程调用协议，服务与服务之间的通信配置。&lt;/p&gt;<
 
 &lt;h2 id=&#34;5种数据类型-type-obj-函数可以查看数据类型&#34;&gt;5种数据类型：(type(obj)函数可以查看数据类型)&lt;/h2&gt;
 
-&lt;p&gt;数字：整型、长整型、浮点型、复数型（complex:实部和虚部，虚部用j表示）
-字符串:
-列表、元组、字典&lt;/p&gt;
+&lt;p&gt;数字：整型、长整型、浮点型、复数型（complex:实部和虚部，虚部用j表示）&lt;br&gt;
+字符串:&lt;br&gt;
+列表、元组、字典&lt;br&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;python中常量的定义&#34;&gt;python中常量的定义&lt;/h2&gt;
 
@@ -335,7 +344,7 @@ protocol:远程调用协议，服务与服务之间的通信配置。&lt;/p&gt;<
 
 &lt;h2 id=&#34;python字符串拼接用法&#34;&gt;python字符串拼接用法&lt;/h2&gt;
 
-&lt;p&gt;先用占位符占位，然后通过格式化方法注入参数。
+&lt;p&gt;先用占位符占位，然后通过格式化方法注入参数。&lt;br&gt;
         eg: print &amp;lsquo;{0} 是一门 {1} 的语言&amp;rsquo;.format(&amp;ldquo;python&amp;rdquo;, &amp;ldquo;简单易学&amp;rdquo;)&lt;/p&gt;</description>
     </item>
     
