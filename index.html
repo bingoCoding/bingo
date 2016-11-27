@@ -162,7 +162,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        6
+        8
         <span>Posts</span>
       </div>
       <div class="article-info-block">
@@ -933,6 +933,260 @@
     </a>
     
     <a href="https://bingocoding.github.io/2016/10/15/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/#disqus_thread" class="article-comment-link">
+        Comments
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+        </div>
+    </article>
+    
+    <article class="article article-type-post" itemscope="" itemprop="blogPost">
+        <div class="article-inner">
+            
+            </a>
+
+            <header class="article-header">
+    <a href="https://bingocoding.github.io/2016/07/19/%E6%B5%81%E4%B8%8E%E6%96%87%E4%BB%B6">
+    <h1 class="article-title" itemprop="name">
+        流与文件
+    </h1>
+    </a>
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2016-07-19 17:54:13 &#43;0800 CST" itemprop="datePublished">2016-07-19</time>
+            &middot;
+            104
+            words
+            &middot;
+            1
+            minute read
+        </div>
+
+        
+        
+            
+            
+        
+
+        
+            
+            
+        
+    </div>
+</header>
+
+            <div class="article-entry" itemprop="articleBody">
+                <p>
+                    
+                    <br>
+                </p>
+                <p class="article-more-link">
+                    <a href="https://bingocoding.github.io/2016/07/19/%E6%B5%81%E4%B8%8E%E6%96%87%E4%BB%B6">
+                        Read more
+                    </a>
+                </p>
+            </div>
+            <footer class="article-footer">
+    <a data-url="https://bingocoding.github.io/2016/07/19/%E6%B5%81%E4%B8%8E%E6%96%87%E4%BB%B6" data-id="68a4e5c31f0f8568cde322ed95f67449" class="article-share-link">
+        <i class="fa fa-share"></i>
+        Share
+    </a>
+    
+    <a href="https://bingocoding.github.io/2016/07/19/%E6%B5%81%E4%B8%8E%E6%96%87%E4%BB%B6/#disqus_thread" class="article-comment-link">
+        Comments
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+        </div>
+    </article>
+    
+    <article class="article article-type-post" itemscope="" itemprop="blogPost">
+        <div class="article-inner">
+            
+            </a>
+
+            <header class="article-header">
+    <a href="https://bingocoding.github.io/2016/07/19/echarts-%E6%94%B9%E5%8F%98canvas-%E7%94%BB%E5%B8%83%E5%A4%A7%E5%B0%8F">
+    <h1 class="article-title" itemprop="name">
+        echarts 改变canvas 画布大小
+    </h1>
+    </a>
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2016-07-19 17:53:52 &#43;0800 CST" itemprop="datePublished">2016-07-19</time>
+            &middot;
+            56
+            words
+            &middot;
+            1
+            minute read
+        </div>
+
+        
+        
+            
+            
+        
+
+        
+            
+            
+        
+    </div>
+</header>
+
+            <div class="article-entry" itemprop="articleBody">
+                <p>
+                    
+                    <br>
+                </p>
+                <p class="article-more-link">
+                    <a href="https://bingocoding.github.io/2016/07/19/echarts-%E6%94%B9%E5%8F%98canvas-%E7%94%BB%E5%B8%83%E5%A4%A7%E5%B0%8F">
+                        Read more
+                    </a>
+                </p>
+            </div>
+            <footer class="article-footer">
+    <a data-url="https://bingocoding.github.io/2016/07/19/echarts-%E6%94%B9%E5%8F%98canvas-%E7%94%BB%E5%B8%83%E5%A4%A7%E5%B0%8F" data-id="3f6e85fed2cebed6c28ffa31334fcff5" class="article-share-link">
+        <i class="fa fa-share"></i>
+        Share
+    </a>
+    
+    <a href="https://bingocoding.github.io/2016/07/19/echarts-%E6%94%B9%E5%8F%98canvas-%E7%94%BB%E5%B8%83%E5%A4%A7%E5%B0%8F/#disqus_thread" class="article-comment-link">
         Comments
     </a>
     

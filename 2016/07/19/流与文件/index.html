@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-    <title>初学shiro--基础 &middot; bingo</title>
+    <title>流与文件 &middot; bingo</title>
     <meta name="generator" content="Hugo 0.17" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="author" content="bingo">
     
-      <meta name="description" content="更专注于技术">
+      <meta name="description" content="流学习笔记">
     
     
-    <link rel="canonical" href="https://bingocoding.github.io/2016/11/27/%E5%88%9D%E5%AD%A6shiro--%E5%9F%BA%E7%A1%80"/>
+    <link rel="canonical" href="https://bingocoding.github.io/2016/07/19/%E6%B5%81%E4%B8%8E%E6%96%87%E4%BB%B6"/>
     <link rel="icon" href="https://bingocoding.github.io/favicon.ico">
     <link rel="apple-touch-icon" href="https://bingocoding.github.io/apple-touch-icon.png" />
     <link rel="stylesheet" href="https://bingocoding.github.io/css/style.css">
@@ -19,13 +19,13 @@
     <link rel="stylesheet" href="https://bingocoding.github.io/fancybox/jquery.fancybox.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="初学shiro--基础" />
-<meta property="og:description" content="" />
+    <meta property="og:title" content="流与文件" />
+<meta property="og:description" content="流学习笔记" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://bingocoding.github.io/2016/11/27/%E5%88%9D%E5%AD%A6shiro--%E5%9F%BA%E7%A1%80" />
+<meta property="og:url" content="https://bingocoding.github.io/2016/07/19/%E6%B5%81%E4%B8%8E%E6%96%87%E4%BB%B6" />
 
 
-<meta property="og:updated_time" content="2016-11-27T15:03:28&#43;08:00"/>
+<meta property="og:updated_time" content="2016-07-19T17:54:13&#43;08:00"/>
 
 
 
@@ -38,12 +38,12 @@
 
     
     
-<meta itemprop="name" content="初学shiro--基础">
-<meta itemprop="description" content="">
+<meta itemprop="name" content="流与文件">
+<meta itemprop="description" content="流学习笔记">
 
 
-<meta itemprop="dateModified" content="2016-11-27T15:03:28&#43;08:00" />
-<meta itemprop="wordCount" content="52">
+<meta itemprop="dateModified" content="2016-07-19T17:54:13&#43;08:00" />
+<meta itemprop="wordCount" content="104">
 
 
 
@@ -55,8 +55,8 @@
 
 
 
-<meta name="twitter:title" content="初学shiro--基础"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="流与文件"/>
+<meta name="twitter:description" content="流学习笔记"/>
 <meta name="twitter:site" content="@bingo"/>
 
 
@@ -267,17 +267,17 @@
             
 
             <header class="article-header">
-    <a href="https://bingocoding.github.io/2016/11/27/%E5%88%9D%E5%AD%A6shiro--%E5%9F%BA%E7%A1%80">
+    <a href="https://bingocoding.github.io/2016/07/19/%E6%B5%81%E4%B8%8E%E6%96%87%E4%BB%B6">
     <h1 class="article-title" itemprop="name">
-        初学shiro--基础
+        流与文件
     </h1>
     </a>
     <div class="article-meta">
         <div class="article-date">
             <i class="fa fa-calendar"></i>
-            <time datetime="2016-11-27 15:03:28 &#43;0800 CST" itemprop="datePublished">2016-11-27</time>
+            <time datetime="2016-07-19 17:54:13 &#43;0800 CST" itemprop="datePublished">2016-07-19</time>
             &middot;
-            52
+            104
             words
             &middot;
             1
@@ -298,64 +298,65 @@
 </header>
 
             <div class="article-entry" itemprop="articleBody">
-                <p>
-    &gt; Apache Shiro（日语“堡垒（Castle）”的意思）是一个强大易用的Java安全框架，提供了认证、授权、加密和会话管理功能，可为任何应用提供安全保障- 从命令行应用、移动应用到大型网络及企业应用。</p>
+                <p></p>
 
-<p>Shiro为解决下列问题（我喜欢称它们为应用安全的四要素）提供了保护应用的API：</p>
+<h2 id="流">流</h2>
 
-<p>认证 - 用户身份识别，常被称为用户“登录”；</p>
+<p>输入流：在java api 中可以读入一个字节序列的对象叫输入流。
+输出流：可以向其中写入一个字节序列的对象叫输出流。
+        这些可操作的字节序列可以是文件，网络连接，内存块
+        InputStream 和 outputStream 构成了有层次结构的输入/输出类的基础。
+        InputStream 有一个抽象方法 int read(); outputStream 有一个抽象方法 void write（）;
+        read 和 writer都是阻塞式执行。意味着如果不能立即执行，那么当前的线程将被阻塞，这使得在这个方法等待的时间里，其他线程将有机会去执行有用的工作。
+        available方法可以检查当前可用于读入的字节数量。
+    int bytesAvailable =in.available();
+    byte[] data=new byte[bytesAvailable];
+    if(bytesAvailable&gt;0){
+        in.read();
+    }
+        字节流不便于处理unicode存储的信息，所以从抽象类Reader和writer继承出了专门类
+        当完成流的读写时，应该调用close 来关闭流，释放资源</p>
 
-<p>授权 - 访问控制；</p>
+<pre><code>    一般情况下，程序员很少用到read,write,因为大部分数据可能更多的是数字、字符串、对象，而不是源生字节
 
-<p>密码加密 - 保护或隐藏数据防止被偷窥；</p>
+    InputStream Api:
+    int read()  从数据中读入一个字节，并返回该字节，碰到结尾返回-1。
+    int read(byte[] b) 读入一个数组，并返回实际读入的字节数。最多读入b.length字节
+    int read(byte[] b,int off,int len) off 偏移量，len读取长度
+    long skip(long n) 在输入流中跳过n个字节，返回实际跳过的字节数
+    int available() 返回不阻塞情况下的字节数
+    void mark(int readlimit) 在输入流的当前位置打一个标记（并非所有流都支持），如果输入流中已经读入的字节多于readlimit个，则这个流允许忽略这个标记。
+    void reset() 返回到最后的标记，随后对read的调用将重新读入这些字节。如果没有标记，则这个流不被重置。
+    boolean markSupported() 如果这个流支持打标记，则返回true
+    outputStream api:
+    void write(int n) 写出一个字节的数据
+    void write(byte[] b)
+    void write(byte[] b,int off,int len) 写出字节到数组 b 中
+    void close() 关闭流、
+    void flush() 清空输出流，即将缓冲数据发到目的地
 
-<p>会话管理 - 每用户相关的时间敏感的状态。</p>
+以上可以处理字节和字节数组，但当需要读写字符串和数字时就需要其他更强大的子类了。
+如 dataInputStream ,DataOutputStream可以以二进制格式读取所有的基本java类。
+如 ZipInputStream ,ZipOutputStream 可以以常见的zip压缩格式读写文件。
+</code></pre>
 
-<p>Shiro还支持一些辅助特性，如Web应用安全、单元测试和多线程，它们的存在强化了上面提到的四个要素。</p>
+<h3 id="访问文件和目录-文件管理">访问文件和目录（文件管理）</h3>
 
-<p>身份认证：<br></p>
+<h3 id="以二进制格式和文本格式来读写数据-文本输入输出-读入写出二进制数据">以二进制格式和文本格式来读写数据（文本输入输出，读入写出二进制数据）</h3>
 
-<p>subject(认证主体):<br>
-principals:身份，可以是一个用户名，邮件，电话号码等等唯一标识。<br>
-credentials:凭证，常见有密码，数字证书等。<br>
-一般情况下，principals和credentials表示用户名和密码。<br></p>
+<h3 id="序列化机制-可以使存储对象像存储文本和数字一样容易-对象流与序列化">序列化机制：可以使存储对象像存储文本和数字一样容易（对象流与序列化）</h3>
 
-<p>realms(域)：<br>
-shiro从realms中获取验证数据<br>
-其中shiro.ini属于text realm<br>
-realm有很多种，jdbc realm,jndi realm ,text realm &hellip;&hellip;<br></p>
+<h3 id="正则表达式">正则表达式</h3>
 
-<p>权限认证：<br>
-既访问控制，既在应用中控制谁拥有访问权限。<br>
-权限认证核心三要素：权限，角色，用户<br></p>
-
-<p>授权：<br>
-1.编程式授权<br>
-    基于角色的访问控制<br>
-    基于权限的访问控制<br>
-2.注解式授权<br>
-3.jsp标签授权<br></p>
-
-<p><br>
-共有的仓库<br>
-<a href="http://repository.sonatype.org/content/groups/public/">http://repository.sonatype.org/content/groups/public/</a><br>
- <a href="http://mirrors.ibiblio.org/pub/mirrors/maven2/org/acegisecurity/">http://mirrors.ibiblio.org/pub/mirrors/maven2/org/acegisecurity/</a><br>
-<a href="http://mvnrepository.com/">http://mvnrepository.com/</a><br>
- <a href="http://search.maven.org/">http://search.maven.org/</a><br></p>
-
-<p>私有的仓库<br>
-<a href="http://repository.codehaus.org/">http://repository.codehaus.org/</a><br>
- <a href="http://snapshots.repository.codehaus.org/">http://snapshots.repository.codehaus.org/</a><br>
- <a href="http://people.apache.org/repo/m2-snapshot-repository">http://people.apache.org/repo/m2-snapshot-repository</a><br>
- <a href="http://people.apache.org/repo/m2-incubating-repository/">http://people.apache.org/repo/m2-incubating-repository/</a> <br></p>
+<h3 id="zip文档">zip文档</h3>
             </div>
             <footer class="article-footer">
-    <a data-url="https://bingocoding.github.io/2016/11/27/%E5%88%9D%E5%AD%A6shiro--%E5%9F%BA%E7%A1%80" data-id="eb932036be82ea3e37519b0d49534e2c" class="article-share-link">
+    <a data-url="https://bingocoding.github.io/2016/07/19/%E6%B5%81%E4%B8%8E%E6%96%87%E4%BB%B6" data-id="68a4e5c31f0f8568cde322ed95f67449" class="article-share-link">
         <i class="fa fa-share"></i>
         Share
     </a>
     
-    <a href="https://bingocoding.github.io/2016/11/27/%E5%88%9D%E5%AD%A6shiro--%E5%9F%BA%E7%A1%80/#disqus_thread" class="article-comment-link">
+    <a href="https://bingocoding.github.io/2016/07/19/%E6%B5%81%E4%B8%8E%E6%96%87%E4%BB%B6/#disqus_thread" class="article-comment-link">
         Comments
     </a>
     
@@ -431,20 +432,20 @@ realm有很多种，jdbc realm,jndi realm ,text realm &hellip;&hellip;<br></p>
         
 <nav id="article-nav">
     
-    <a href="https://bingocoding.github.io/2016/11/07/web%E4%B9%8Bfilter%E8%BF%87%E6%BB%A4%E5%99%A8%E5%AD%A6%E4%B9%A0" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="https://bingocoding.github.io/2016/07/19/echarts-%E6%94%B9%E5%8F%98canvas-%E7%94%BB%E5%B8%83%E5%A4%A7%E5%B0%8F" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">
           Older
       </strong>
-      <div class="article-nav-title">web之filter过滤器学习</div>
+      <div class="article-nav-title">echarts 改变canvas 画布大小</div>
     </a>
     
 
     
-    <a href="https://bingocoding.github.io/2016/11/27/shiro%E6%8A%A5%E9%94%99-err-1146" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="https://bingocoding.github.io/2016/10/15/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">
           Newer
       </strong>
-      <div class="article-nav-title">shiro报错 err 1146</div>
+      <div class="article-nav-title">使用hugo搭建个人博客</div>
     </a>
     
 </nav>
@@ -458,9 +459,9 @@ realm有很多种，jdbc realm,jndi realm ,text realm &hellip;&hellip;<br></p>
             <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'bingo';
-    var disqus_identifier = 'https:\/\/bingocoding.github.io\/2016\/11\/27\/%E5%88%9D%E5%AD%A6shiro--%E5%9F%BA%E7%A1%80';
-    var disqus_title = '初学shiro--基础';
-    var disqus_url = 'https:\/\/bingocoding.github.io\/2016\/11\/27\/%E5%88%9D%E5%AD%A6shiro--%E5%9F%BA%E7%A1%80';
+    var disqus_identifier = 'https:\/\/bingocoding.github.io\/2016\/07\/19\/%E6%B5%81%E4%B8%8E%E6%96%87%E4%BB%B6';
+    var disqus_title = '流与文件';
+    var disqus_url = 'https:\/\/bingocoding.github.io\/2016\/07\/19\/%E6%B5%81%E4%B8%8E%E6%96%87%E4%BB%B6';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

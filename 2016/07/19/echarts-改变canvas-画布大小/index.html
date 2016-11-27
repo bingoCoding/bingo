@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-    <title>初学shiro--基础 &middot; bingo</title>
+    <title>echarts 改变canvas 画布大小 &middot; bingo</title>
     <meta name="generator" content="Hugo 0.17" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="author" content="bingo">
     
-      <meta name="description" content="更专注于技术">
+      <meta name="description" content="echarts x轴显示太长的名字，显示不全">
     
     
-    <link rel="canonical" href="https://bingocoding.github.io/2016/11/27/%E5%88%9D%E5%AD%A6shiro--%E5%9F%BA%E7%A1%80"/>
+    <link rel="canonical" href="https://bingocoding.github.io/2016/07/19/echarts-%E6%94%B9%E5%8F%98canvas-%E7%94%BB%E5%B8%83%E5%A4%A7%E5%B0%8F"/>
     <link rel="icon" href="https://bingocoding.github.io/favicon.ico">
     <link rel="apple-touch-icon" href="https://bingocoding.github.io/apple-touch-icon.png" />
     <link rel="stylesheet" href="https://bingocoding.github.io/css/style.css">
@@ -19,13 +19,13 @@
     <link rel="stylesheet" href="https://bingocoding.github.io/fancybox/jquery.fancybox.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
-    <meta property="og:title" content="初学shiro--基础" />
-<meta property="og:description" content="" />
+    <meta property="og:title" content="echarts 改变canvas 画布大小" />
+<meta property="og:description" content="echarts x轴显示太长的名字，显示不全" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://bingocoding.github.io/2016/11/27/%E5%88%9D%E5%AD%A6shiro--%E5%9F%BA%E7%A1%80" />
+<meta property="og:url" content="https://bingocoding.github.io/2016/07/19/echarts-%E6%94%B9%E5%8F%98canvas-%E7%94%BB%E5%B8%83%E5%A4%A7%E5%B0%8F" />
 
 
-<meta property="og:updated_time" content="2016-11-27T15:03:28&#43;08:00"/>
+<meta property="og:updated_time" content="2016-07-19T17:53:52&#43;08:00"/>
 
 
 
@@ -38,12 +38,12 @@
 
     
     
-<meta itemprop="name" content="初学shiro--基础">
-<meta itemprop="description" content="">
+<meta itemprop="name" content="echarts 改变canvas 画布大小">
+<meta itemprop="description" content="echarts x轴显示太长的名字，显示不全">
 
 
-<meta itemprop="dateModified" content="2016-11-27T15:03:28&#43;08:00" />
-<meta itemprop="wordCount" content="52">
+<meta itemprop="dateModified" content="2016-07-19T17:53:52&#43;08:00" />
+<meta itemprop="wordCount" content="56">
 
 
 
@@ -55,8 +55,8 @@
 
 
 
-<meta name="twitter:title" content="初学shiro--基础"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="echarts 改变canvas 画布大小"/>
+<meta name="twitter:description" content="echarts x轴显示太长的名字，显示不全"/>
 <meta name="twitter:site" content="@bingo"/>
 
 
@@ -267,17 +267,17 @@
             
 
             <header class="article-header">
-    <a href="https://bingocoding.github.io/2016/11/27/%E5%88%9D%E5%AD%A6shiro--%E5%9F%BA%E7%A1%80">
+    <a href="https://bingocoding.github.io/2016/07/19/echarts-%E6%94%B9%E5%8F%98canvas-%E7%94%BB%E5%B8%83%E5%A4%A7%E5%B0%8F">
     <h1 class="article-title" itemprop="name">
-        初学shiro--基础
+        echarts 改变canvas 画布大小
     </h1>
     </a>
     <div class="article-meta">
         <div class="article-date">
             <i class="fa fa-calendar"></i>
-            <time datetime="2016-11-27 15:03:28 &#43;0800 CST" itemprop="datePublished">2016-11-27</time>
+            <time datetime="2016-07-19 17:53:52 &#43;0800 CST" itemprop="datePublished">2016-07-19</time>
             &middot;
-            52
+            56
             words
             &middot;
             1
@@ -298,64 +298,69 @@
 </header>
 
             <div class="article-entry" itemprop="articleBody">
-                <p>
-    &gt; Apache Shiro（日语“堡垒（Castle）”的意思）是一个强大易用的Java安全框架，提供了认证、授权、加密和会话管理功能，可为任何应用提供安全保障- 从命令行应用、移动应用到大型网络及企业应用。</p>
+                <p></p>
 
-<p>Shiro为解决下列问题（我喜欢称它们为应用安全的四要素）提供了保护应用的API：</p>
+<h2 id="echarts-canvas">echarts  canvas</h2>
 
-<p>认证 - 用户身份识别，常被称为用户“登录”；</p>
+<blockquote>
+<p><a href="http://www.w3school.com.cn/html5/html5_canvas.asp">canvas</a></p>
+</blockquote>
 
-<p>授权 - 访问控制；</p>
+<p>在用echarts时，x轴显示过长的名字，会有重叠，或者显示不全问题，感觉画布框太小。通过调试发现，css定义在canvas里，用js调整总是不那么完美。经查资料发现要修改，so easy~。</p>
 
-<p>密码加密 - 保护或隐藏数据防止被偷窥；</p>
+<h3 id="x轴data名字太多-导致重叠或显示不全-在xaxis中加axislabel">x轴data名字太多，导致重叠或显示不全。在xAxis中加axisLabel。</h3>
 
-<p>会话管理 - 每用户相关的时间敏感的状态。</p>
+<p><img src="{{&quot;/css/pics/echarts3.png&quot;}}" alt="echarts3" />
+<img src="{{&quot;/css/pics/echarts4.png&quot;}}" alt="echarts4" />
+<br/></p>
 
-<p>Shiro还支持一些辅助特性，如Web应用安全、单元测试和多线程，它们的存在强化了上面提到的四个要素。</p>
+<pre><code>xAxis : [ {
+    axisLabel :{  
+        interval:0,
+        rotate: 60
+    } 
+} ]
+</code></pre>
 
-<p>身份认证：<br></p>
+<p><br/>
+<b> interval:0  间隔，表示根据刻度个数进行调整。</b>
+<b> 如果你想要设置所有刻度均显示出来，则只需要设置当前属性值为0即可。</b>
+<br/></p>
 
-<p>subject(认证主体):<br>
-principals:身份，可以是一个用户名，邮件，电话号码等等唯一标识。<br>
-credentials:凭证，常见有密码，数字证书等。<br>
-一般情况下，principals和credentials表示用户名和密码。<br></p>
+<blockquote>
+<p>{string | number}interval &lsquo;auto&rsquo;类目型标签显示挑选间隔，默认为&rsquo;auto&rsquo;，可选为：&rsquo;auto&rsquo;（自动隐藏显示不下的）
+| ,0（全部显示）
+|{number}（用户指定选择间隔）</p>
+</blockquote>
 
-<p>realms(域)：<br>
-shiro从realms中获取验证数据<br>
-其中shiro.ini属于text realm<br>
-realm有很多种，jdbc realm,jndi realm ,text realm &hellip;&hellip;<br></p>
+<p>想要间隔多少个这里就可以配置多少的数值即可，根据个人需要作出相应配置。</p>
 
-<p>权限认证：<br>
-既访问控制，既在应用中控制谁拥有访问权限。<br>
-权限认证核心三要素：权限，角色，用户<br></p>
+<p><b> rotate :60  倾斜角度，可以改变xAxis的data 数据名字倾斜角度。可以防止名字重叠。</b></p>
 
-<p>授权：<br>
-1.编程式授权<br>
-    基于角色的访问控制<br>
-    基于权限的访问控制<br>
-2.注解式授权<br>
-3.jsp标签授权<br></p>
+<p><img src="{{&quot;/css/pics/echarts1.png&quot;}}" alt="echarts1" /></p>
 
-<p><br>
-共有的仓库<br>
-<a href="http://repository.sonatype.org/content/groups/public/">http://repository.sonatype.org/content/groups/public/</a><br>
- <a href="http://mirrors.ibiblio.org/pub/mirrors/maven2/org/acegisecurity/">http://mirrors.ibiblio.org/pub/mirrors/maven2/org/acegisecurity/</a><br>
-<a href="http://mvnrepository.com/">http://mvnrepository.com/</a><br>
- <a href="http://search.maven.org/">http://search.maven.org/</a><br></p>
+<h3 id="倾斜之后-可能由于名字太长-导致显示不全-如上图">倾斜之后，可能由于名字太长，导致显示不全，如上图。</h3>
 
-<p>私有的仓库<br>
-<a href="http://repository.codehaus.org/">http://repository.codehaus.org/</a><br>
- <a href="http://snapshots.repository.codehaus.org/">http://snapshots.repository.codehaus.org/</a><br>
- <a href="http://people.apache.org/repo/m2-snapshot-repository">http://people.apache.org/repo/m2-snapshot-repository</a><br>
- <a href="http://people.apache.org/repo/m2-incubating-repository/">http://people.apache.org/repo/m2-incubating-repository/</a> <br></p>
+<p>调试发现 canvas 标签里有height 和style.height 两个height。通过改变两个height的高度，发现内层style.height默认是跟随外层height 进行缩放拉伸。两个height总是保持一致。不知道怎么调整两个的高度。后来发现，原来echarts已经提供了设置参数用来调节显示问题。</p>
+
+<pre><code>grid: { // 控制图的大小，调整下面这些值就可以，
+     x: 40,
+     x2: 100,
+     y2: 115 // y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
+ },
+</code></pre>
+
+<p><img src="{{&quot;/css/pics/echarts2.png&quot;}}" alt="echarts2" /></p>
+
+<p>ok,问题解决。</p>
             </div>
             <footer class="article-footer">
-    <a data-url="https://bingocoding.github.io/2016/11/27/%E5%88%9D%E5%AD%A6shiro--%E5%9F%BA%E7%A1%80" data-id="eb932036be82ea3e37519b0d49534e2c" class="article-share-link">
+    <a data-url="https://bingocoding.github.io/2016/07/19/echarts-%E6%94%B9%E5%8F%98canvas-%E7%94%BB%E5%B8%83%E5%A4%A7%E5%B0%8F" data-id="3f6e85fed2cebed6c28ffa31334fcff5" class="article-share-link">
         <i class="fa fa-share"></i>
         Share
     </a>
     
-    <a href="https://bingocoding.github.io/2016/11/27/%E5%88%9D%E5%AD%A6shiro--%E5%9F%BA%E7%A1%80/#disqus_thread" class="article-comment-link">
+    <a href="https://bingocoding.github.io/2016/07/19/echarts-%E6%94%B9%E5%8F%98canvas-%E7%94%BB%E5%B8%83%E5%A4%A7%E5%B0%8F/#disqus_thread" class="article-comment-link">
         Comments
     </a>
     
@@ -431,20 +436,13 @@ realm有很多种，jdbc realm,jndi realm ,text realm &hellip;&hellip;<br></p>
         
 <nav id="article-nav">
     
-    <a href="https://bingocoding.github.io/2016/11/07/web%E4%B9%8Bfilter%E8%BF%87%E6%BB%A4%E5%99%A8%E5%AD%A6%E4%B9%A0" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">
-          Older
-      </strong>
-      <div class="article-nav-title">web之filter过滤器学习</div>
-    </a>
-    
 
     
-    <a href="https://bingocoding.github.io/2016/11/27/shiro%E6%8A%A5%E9%94%99-err-1146" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="https://bingocoding.github.io/2016/07/19/%E6%B5%81%E4%B8%8E%E6%96%87%E4%BB%B6" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">
           Newer
       </strong>
-      <div class="article-nav-title">shiro报错 err 1146</div>
+      <div class="article-nav-title">流与文件</div>
     </a>
     
 </nav>
@@ -458,9 +456,9 @@ realm有很多种，jdbc realm,jndi realm ,text realm &hellip;&hellip;<br></p>
             <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'bingo';
-    var disqus_identifier = 'https:\/\/bingocoding.github.io\/2016\/11\/27\/%E5%88%9D%E5%AD%A6shiro--%E5%9F%BA%E7%A1%80';
-    var disqus_title = '初学shiro--基础';
-    var disqus_url = 'https:\/\/bingocoding.github.io\/2016\/11\/27\/%E5%88%9D%E5%AD%A6shiro--%E5%9F%BA%E7%A1%80';
+    var disqus_identifier = 'https:\/\/bingocoding.github.io\/2016\/07\/19\/echarts-%E6%94%B9%E5%8F%98canvas-%E7%94%BB%E5%B8%83%E5%A4%A7%E5%B0%8F';
+    var disqus_title = 'echarts 改变canvas 画布大小';
+    var disqus_url = 'https:\/\/bingocoding.github.io\/2016\/07\/19\/echarts-%E6%94%B9%E5%8F%98canvas-%E7%94%BB%E5%B8%83%E5%A4%A7%E5%B0%8F';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
