@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <title>使用hugo搭建个人博客 &middot; bingo</title>
+    <meta name="generator" content="Hugo 0.17" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="bingo">
+    
+      <meta name="description" content="使用hugo搭建个人博客">
+    
+    
+    <link rel="canonical" href="https://bingocoding.github.io/2016/10/15/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2"/>
+    <link rel="icon" href="https://bingocoding.github.io/favicon.ico">
+    <link rel="apple-touch-icon" href="https://bingocoding.github.io/apple-touch-icon.png" />
+    <link rel="stylesheet" href="https://bingocoding.github.io/css/style.css">
+    <link rel="stylesheet" href="https://bingocoding.github.io/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://bingocoding.github.io/css/monokai.css">
+    <link rel="stylesheet" href="https://bingocoding.github.io/fancybox/jquery.fancybox.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <meta property="og:title" content="使用hugo搭建个人博客" />
+<meta property="og:description" content="使用hugo搭建个人博客" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bingocoding.github.io/2016/10/15/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2" />
+
+
+<meta property="og:updated_time" content="2016-10-15T15:47:34&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+    
+    
+<meta itemprop="name" content="使用hugo搭建个人博客">
+<meta itemprop="description" content="使用hugo搭建个人博客">
+
+
+<meta itemprop="dateModified" content="2016-10-15T15:47:34&#43;08:00" />
+<meta itemprop="wordCount" content="140">
+
+
+
+<meta itemprop="keywords" content="" />
+
+    
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:title" content="使用hugo搭建个人博客"/>
+<meta name="twitter:description" content="使用hugo搭建个人博客"/>
+<meta name="twitter:site" content="@bingo"/>
+
+
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+
+<div id="container">
+	<header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="https://bingocoding.github.io/" id="logo">
+          
+          <i class="logo" style="background-image: url('https://bingoCoding.github.io/css/images/logo.png')"></i>
+          
+          <span class="site-title">bingo</span>
+      </a>
+      <nav id="main-nav">
+          
+          
+          <a class="main-nav-link" href="https://bingoCoding.github.io/">Home</a>
+          
+          
+          
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+          <a class="main-nav-link" href="https://bingoCoding.github.io/tags/">Tags</a>
+          
+          
+          
+          <a class="main-nav-link" href="https://bingoCoding.github.io/categories/">Categories</a>
+          
+          
+      </nav>
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="https://bingoCoding.github.io/css/images/avatar.png"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+              <input type="search" name="q" class="search-form-input" placeholder="Search">
+              <button type="submit" class="search-form-submit">
+              </button>
+              <input type="hidden" name="q" value="site:https://bingocoding.github.io/">
+         </form>
+        </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tbody>
+          <tr>
+          
+          
+          <td><a class="main-nav-link" href="https://bingoCoding.github.io/">Home</a></td>
+          
+          
+          
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+          <td><a class="main-nav-link" href="https://bingoCoding.github.io/tags/">Tags</a></td>
+          
+          
+          
+          <td><a class="main-nav-link" href="https://bingoCoding.github.io/categories/">Categories</a></td>
+          
+          
+          <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form">
+          <input type="search" name="q" class="search-form-input" placeholder="Search">
+          <input type="hidden" name="q" value="site:https://bingocoding.github.io/">
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</header>
+
+   	
+   	<div class="outer">
+   		
+	    <aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      <img id="avatar" src="https://bingoCoding.github.io/css/images/avatar.png">
+      <h2 id="name">bingo</h2>
+      <h3 id="title">更专注于技术</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>北京</span>
+      
+          <a id="follow" href="https://github.com/digitalcraftsman">
+              Follow
+          </a>
+      
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        6
+        <span>Posts</span>
+      </div>
+      <div class="article-info-block">
+        
+          0
+        
+        <span>
+            Tags
+        </span>
+      </div>
+    </div>
+    <div class="profile-block social-links">
+      <table>
+        <tr>
+          
+<td><a href="//github.com/digitalcraftsman" target="_blank" title="GitHub"><i class="fa fa-github"></i></a></td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<td><a href="//twitter.com/bingo" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></td>
+
+
+          <td><a href="" target="_blank" title="RSS"><i class="fa fa-rss"></i></a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</aside>
+
+	    
+
+	    
+<section id="main">
+
+    <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
+        <div class="article-inner">
+            
+
+            <header class="article-header">
+    <a href="https://bingocoding.github.io/2016/10/15/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2">
+    <h1 class="article-title" itemprop="name">
+        使用hugo搭建个人博客
+    </h1>
+    </a>
+    <div class="article-meta">
+        <div class="article-date">
+            <i class="fa fa-calendar"></i>
+            <time datetime="2016-10-15 15:47:34 &#43;0800 CST" itemprop="datePublished">2016-10-15</time>
+            &middot;
+            140
+            words
+            &middot;
+            1
+            minute read
+        </div>
+
+        
+        
+            
+            
+        
+
+        
+            
+            
+        
+    </div>
+</header>
+
+            <div class="article-entry" itemprop="articleBody">
+                <p></p>
+
+<h3 id="使用hugo搭建个人博客">使用hugo搭建个人博客</h3>
+
+<p>先说说hugo.
+一直想用一个简单的框架搭建一个自己的博客，后来看到有人使用了jekyll,于是自己也尝试搭建了一个。虽然最后也搭建成功了，但是还是有点不爽的。其他的不说，对于一个新手来说，Jekyll以及那一堆静态网站生成器安装总感觉麻烦（依赖多，配置多）。当然不爽还因为，因为我是菜鸟网页搭建好后还有许多地方看起来不那么完美。对于我来说，一个博客应该将时间花在内容上而不是各种折腾网站。
+直到看到有人说用hugo搭建个人博客或中小型站点后，发现只是搭建一个环境的话hugo更适合我。
+hugo 生成网站速度飞快，用几ms不敢说，反正瞬间完成。更重要的是搭建安装过程简单。</p>
+
+<h2 id="hugo是一个通用网站框架-静态网站生成器">hugo是一个通用网站框架&ndash;静态网站生成器。</h2>
+
+<h4 id="1-安装">1.安装</h4>
+
+<p>到 <a href="https://github.com/spf13/hugo/releases">Hugo Releases</a>  下载对应的操作系统版本的Hugo二进制文件。
+比如：我安装的windows版本的，只需下载windows版32或64位的压缩文件。
+解压下载好的文件，里面有3个文件，把这三个文件放到同一个文件夹下。
+比如我放到D:\hugo\bin文件夹下。
+配置环境变量。把hugo.exe文件所在路径放到用户环境PATH下。
+打开doc窗口，输入hugo help 出现一下内容说明已经安装成功：</p>
+
+<pre><code>    hugo is the main command, used to build your Hugo site.
+
+    Hugo is a Fast and Flexible Static Site Generator
+    built with love by spf13 and friends in Go. ...
+</code></pre>
+
+<h4 id="2-生成站点">2.生成站点</h4>
+
+<p>打开命令行窗口。输入站点创建命令：hugo new site +你要生成的网站的目录路径。
+比如我的：hugo new site D:/hugo/site/bingoCoding
+或者：进入到目标文件夹下：D盘 hugo文件夹中，右键单击，单击在此处打开命令行。输入命令hugo new site site/bingoCoding
+至此，网站框架已经生成到bingoCoding文件夹下。
+站点目录结构：</p>
+
+<pre><code>    ▸ archetypes/
+    ▸ content/
+    ▸ layouts/
+    ▸ static/
+    config.toml
+</code></pre>
+
+<p>content目录里放的是自己写的markdown文章，layouts目录里放的是网站的模板文件，static目录里放的是一些图片、css、js等资源。</p>
+
+<h4 id="3-创建文章">3.创建文章</h4>
+
+<p>创建一个 first 页面：
+        hugo new post/first.md
+first.md 自动生成到了 content/post/first.md。一般文章都放到post文件夹下，方便管理和之后生成聚合页面。
+内容是 Markdown 格式的，+++ 之间的内容是 TOML 格式的，根据自己喜好，可以换成 YAML 格式（使用 &mdash; 标记）或者 JSON 格式。</p>
+
+<h4 id="4-安装皮肤">4.安装皮肤</h4>
+
+<p>到<a href="http://themes.gohugo.io/">hugo</a> 下载喜欢的皮肤。
+我下载的hugo-icarus-theme皮肤。对于一个博客来说，功能已经很全了。
+在bingoCoding下创建themes文件夹。把下载的皮肤压缩包解压到themes下。
+找到themes\hugo-icarus-theme\exampleSite下的config.toml和data复制到网站根路径下即bingoCoding下替换原有文件和文件夹。
+修改config.toml 中参数即可。</p>
+
+<h4 id="5-运行hugo">5.运行Hugo</h4>
+
+<p>在你的站点根目录执行 Hugo 命令进行调试：</p>
+
+<pre><code>    $ hugo server
+</code></pre>
+
+<p>浏览器里打开： <a href="http://localhost:1313">http://localhost:1313</a></p>
+
+<h4 id="6-关于部署">6.关于部署</h4>
+
+<p>一般情况当然是部署在 GitHub Pages 上啦，首先在GitHub上创建一个Repository，命名为：bingoCoding.github.io （bingoCoding替换为你的github用户名）。</p>
+
+<p>在站点根目录bingoCoding目录下执行 Hugo 命令生成最终页面：</p>
+
+<pre><code>    hugo --theme=hugo-icarus-theme --baseUrl=&quot;https://bingoCoding.github.io/&quot;
+    http一定要加s啊,不然访问的时候会提示不安全信息。
+</code></pre>
+
+<p>如果一切顺利，所有静态页面都会生成到 public 目录。</p>
+
+<p>将pubilc目录里所有文件 push 到刚创建的Repository的 master 分支。
+如果没安装git的话.可以直接打开GitHub上创建的Repository，点击bingoCoding.github.io,选择upload files,把public文件夹下的所有文件拷贝到github上，commit.</p>
+
+<p>浏览器里访问：<a href="http://bingoCoding.github.io/">http://bingoCoding.github.io/</a></p>
+
+<p>官方文档：<a href="https://gohugo.io/overview/introduction/">https://gohugo.io/overview/introduction/</a></p>
+
+<p>皮肤列表：<a href="https://github.com/spf13/hugoThemes">https://github.com/spf13/hugoThemes</a></p>
+            </div>
+            <footer class="article-footer">
+    <a data-url="https://bingocoding.github.io/2016/10/15/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2" data-id="eaa3deb180b3637a7eb56b4dd4081f8f" class="article-share-link">
+        <i class="fa fa-share"></i>
+        Share
+    </a>
+    
+    <a href="https://bingocoding.github.io/2016/10/15/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/#disqus_thread" class="article-comment-link">
+        Comments
+    </a>
+    
+
+    <script>
+    (function ($) {
+        
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+    </script>
+</footer>
+
+        </div>
+
+        
+<nav id="article-nav">
+    
+
+    
+    <a href="https://bingocoding.github.io/2016/10/31/python%E5%88%9D%E8%AF%86" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">
+          Newer
+      </strong>
+      <div class="article-nav-title">python初识</div>
+    </a>
+    
+</nav>
+
+
+    </article>
+
+    
+    <section id="comments">
+        <div id="disqus_thread">
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'bingo';
+    var disqus_identifier = 'https:\/\/bingocoding.github.io\/2016\/10\/15\/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2';
+    var disqus_title = '使用hugo搭建个人博客';
+    var disqus_url = 'https:\/\/bingocoding.github.io\/2016\/10\/15\/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </section>
+    
+</section>
+
+
+	    
+	    <aside id="sidebar">
+    
+<div class="widget-wrap">
+    <h3 class="widget-title">
+        Recents
+    </h3>
+    <div class="widget">
+        <ul id="recent-post">
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="https://bingocoding.github.io/2016/11/27/shiro%E6%8A%A5%E9%94%99-err-1146" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="https://bingocoding.github.io/2016/11/27/shiro%E6%8A%A5%E9%94%99-err-1146" class="title">shiro报错 err 1146</a></p>
+                    <p class="item-date">
+                        <time datetime="2016-11-27 15:06:21 &#43;0800 CST" itemprop="datePublished">2016-11-27</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="https://bingocoding.github.io/2016/11/27/%E5%88%9D%E5%AD%A6shiro--%E5%9F%BA%E7%A1%80" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="https://bingocoding.github.io/2016/11/27/%E5%88%9D%E5%AD%A6shiro--%E5%9F%BA%E7%A1%80" class="title">初学shiro--基础</a></p>
+                    <p class="item-date">
+                        <time datetime="2016-11-27 15:03:28 &#43;0800 CST" itemprop="datePublished">2016-11-27</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="https://bingocoding.github.io/2016/11/07/web%E4%B9%8Bfilter%E8%BF%87%E6%BB%A4%E5%99%A8%E5%AD%A6%E4%B9%A0" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="https://bingocoding.github.io/2016/11/07/web%E4%B9%8Bfilter%E8%BF%87%E6%BB%A4%E5%99%A8%E5%AD%A6%E4%B9%A0" class="title">web之filter过滤器学习</a></p>
+                    <p class="item-date">
+                        <time datetime="2016-11-07 20:00:30 &#43;0800 CST" itemprop="datePublished">2016-11-07</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="https://bingocoding.github.io/2016/11/05/dubbo%E5%88%9D%E8%AF%86%E4%B8%80" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="https://bingocoding.github.io/2016/11/05/dubbo%E5%88%9D%E8%AF%86%E4%B8%80" class="title">dubbo初识一</a></p>
+                    <p class="item-date">
+                        <time datetime="2016-11-05 22:39:09 &#43;0800 CST" itemprop="datePublished">2016-11-05</time>
+                    </p>
+                </div>
+            </li>
+            
+            <li>
+                <div class="item-thumbnail">
+                    <a href="https://bingocoding.github.io/2016/10/31/python%E5%88%9D%E8%AF%86" class="thumbnail">
+                    
+                        <span class="thumbnail-image thumbnail-none"></span>
+                    
+                    </a>
+                </div>
+                <div class="item-inner">
+                    
+                    
+                    
+                    <p class="item-title"><a href="https://bingocoding.github.io/2016/10/31/python%E5%88%9D%E8%AF%86" class="title">python初识</a></p>
+                    <p class="item-date">
+                        <time datetime="2016-10-31 22:35:33 &#43;0800 CST" itemprop="datePublished">2016-10-31</time>
+                    </p>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+    
+
+
+
+
+    
+
+
+
+
+    
+
+
+
+
+
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+
+	    
+	</div>
+</div>
+
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016
+      Powered by <a href="//gohugo.io">Hugo</a>. Theme by <a href="https://github.com/ppoffice">PPOffice</a>.
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://bingocoding.github.io/fancybox/jquery.fancybox.pack.js"></script>
+<script src="https://bingocoding.github.io/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<!-- MathJax -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+</body>
+</html>
